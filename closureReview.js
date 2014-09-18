@@ -11,16 +11,18 @@ var callFriend = function(){
 
 var callFriend = function(){
   var friend = 'Jake';
-  var number;
+  var number = "435-215-9248"
   var callF;
   var callF = function(number){
     return 'Calling ' + friend + ' at ' + number;
-    var number = "435-215-9248"
+    
 
   }
-  return callF;
+  return callF(number);
 };
 console.log(callFriend())
+
+//This works, but how do I hide the number in it?
 
 Some Progress
 var callFriend = function(){

@@ -40,7 +40,7 @@ last(names, function(lastName){
 //**********************COME BACK TO THIS ONE!!!!!!!!!!!!!!!!!****************************
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
-var contains(str, cb){
+var contains(arr,str, cb){
   var yes;
   if (str === "Colt") {
     var inArr = yes;
@@ -61,20 +61,20 @@ contains(names, 'Colt', function(yes){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-//**************COME BACK TO THIS ONE*******************
+
 var numbers = [1,2,3,4,5];
 
 var map = function (arr, cb) {
     var num = [];
     for (var i = 0; i < arr.length; i++) {
-        num.push(arr[i]);
+        num.push(cb(arr[i]));
     }
-    cb(num);
+    return num;
 };
 //Produces a new array of values by mapping each value in list through a transformation function
-map(, function(num){
+console.log(map(numbers, function(num){
   return num * 2; //returns an array of [2,4,6,8,10]
-});
+}));
 
 
 
@@ -171,25 +171,22 @@ getUserById('16t', function(user){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
-//***********COME BACK TO ME!!!!!*****************
 
 //Looks through each value in the list, returning the first one that passes a truth test 
 var numbers  = [1, 2, 3, 4, 5, 6];
 
 var find = function(arr, cb){
   for(var i = 0; i < arr.length; i++){
-   debugger;
-    if(arr[i] % 2 === 0){
-      var num = arr[i];
-      break;
+    if(cb (arr[i])) {
+      return arr[i];
     }
   }
-  cb(num);
 }
 
-find(numbers, function(num){ 
+console.log(find(numbers, function(num){ 
   return num % 2 == 0; //should return 2
-})
-
+}));
+//what happens is find loops through the array- sends the arr[i] to the callback function which evaluates a truth
+//test and then returns it to the find function.
 
 
